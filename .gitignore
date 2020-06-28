@@ -1,5 +1,22 @@
+# Vs Code
+
 *.json
 *.vscode
 settings.json
 tasks.json
 *.exe
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Django :
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
