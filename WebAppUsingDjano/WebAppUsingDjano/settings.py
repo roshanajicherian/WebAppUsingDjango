@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'tcn!7f73vmnzgmptdz9&9mn43h&zkcmg7$(u%a!y9!-a-q)1nl'
+SECRET_KEY = os.environ['SECRET_KEY_DJANGO']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -122,12 +122,20 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 # media_root is full path to directory of where to upload files
-MEDIA_ROOT=os.path.join(BASE_DIR,'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # media_url is the public url of the directory
-MEDIA_URL='/media/'
+MEDIA_URL = '/media/'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 LOGIN_REDIRECT_URL = 'blog-home'
 
 LOGIN_URL = 'login'
+
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = os.environ.get('MAIL_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('MAIL_PASS')

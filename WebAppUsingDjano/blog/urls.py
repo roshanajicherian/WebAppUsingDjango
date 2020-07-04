@@ -2,7 +2,12 @@ from django.urls import path, include
 from django.contrib import admin
 from . import views
 from user import views as user_views
-from .views import PostListView, PostDetailView, PostCreateView, PostUpdateView, PostDeleteView, UserPostListView
+from .views import (PostListView,
+                    PostDetailView,
+                    PostCreateView,
+                    PostUpdateView,
+                    PostDeleteView,
+                    UserPostListView)
 urlpatterns = [
 
     path('', PostListView.as_view(), name='blog-home'),
